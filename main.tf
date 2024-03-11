@@ -17,19 +17,6 @@ module "vpc" {
   source = "./vpc"
 }
 
-module "ecr" {
-  source = "./ecr"
-}
-
-module "ecs" {
-  source = "./ecs"
-
-  aws_ecr_repository = module.ecr.aws_ecr_repository
-}
-
-module "docker" {
-  source = "./docker"
-
-  aws_ecr_repository = module.ecr.aws_ecr_repository
-  aws_region         = "us-west-1"
+module "ddb" {
+  source = "./ddb"
 }
